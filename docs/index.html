@@ -2,63 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WOPI Host Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conference on Advanced Topics in Statistics and Data Science">
+  <title>Conference on Statistics and Data Science</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
-    h1 { color: #333; }
-    .container { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .form-group { margin-bottom: 15px; }
-    label { display: block; margin-bottom: 5px; font-weight: bold; }
-    input[type="text"], input[type="url"], textarea {
-      width: 100%; padding: 8px; box-sizing: border-box;
-      border: 1px solid #ccc; border-radius: 4px;
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
     }
-    button {
-      background-color: #28a745; color: white;
-      padding: 10px 15px; border: none;
-      border-radius: 4px; cursor: pointer;
+    header, footer {
+      background: #003366;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
     }
-    button:hover { background-color: #218838; }
-    iframe { width: 100%; height: 600px; border: none; margin-top: 20px; }
+    main {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    .section {
+      margin-bottom: 2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1em;
+      }
+      main {
+        padding: 1em;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>WOPI Host Document Viewer</h1>
-    <form id="wopiForm">
-      <div class="form-group">
-        <label for="wopiUrl">WOPI Source URL:</label>
-        <input type="url" id="wopiUrl" name="wopiUrl" required placeholder="Enter WOPI source URL">
-      </div>
-      <div class="form-group">
-        <label for="accessToken">Access Token:</label>
-        <input type="text" id="accessToken" name="accessToken" required placeholder="Enter access token">
-      </div>
-      <div class="form-group">
-        <label for="accessTokenTtl">Access Token TTL (optional):</label>
-        <input type="text" id="accessTokenTtl" name="accessTokenTtl" placeholder="Enter token TTL in seconds">
-      </div>
-      <div class="form-group">
-        <label for="uiParams">UI Parameters (optional):</label>
-        <textarea id="uiParams" name="uiParams" placeholder="Enter any UI customization parameters"></textarea>
-      </div>
-      <button type="submit">Open Document</button>
-    </form>
-    <iframe id="wopiFrame" title="WOPI Document Viewer"></iframe>
-  </div>
-  <script>
-    document.getElementById('wopiForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      const url = document.getElementById('wopiUrl').value.trim();
-      const token = encodeURIComponent(document.getElementById('accessToken').value.trim());
-      const ttl = encodeURIComponent(document.getElementById('accessTokenTtl').value.trim());
-      const uiParams = encodeURIComponent(document.getElementById('uiParams').value.trim());
-      let wopiSrc = `${url}&access_token=${token}`;
-      if (ttl) wopiSrc += `&access_token_ttl=${ttl}`;
-      if (uiParams) wopiSrc += `&ui=${uiParams}`;
-      document.getElementById('wopiFrame').src = wopiSrc;
-    });
-  </script>
+
+<header>
+  <h1>Conference on Statistics and Data Science</h1>
+  <p>Date: July 15-17, 2025 | Venue: ABC Auditorium</p>
+</header>
+
+<main>
+  <section class="section">
+    <h2>About the Conference</h2>
+    <p>This conference brings together experts in statistics, machine learning, and data science to discuss recent advances and applications in the field. Researchers, students, and professionals are welcome to attend and participate in talks, workshops, and poster sessions.</p>
+  </section>
+
+  <section class="section">
+    <h2>Important Dates</h2>
+    <ul>
+      <li>Abstract Submission Deadline: May 31, 2025</li>
+      <li>Notification of Acceptance: June 10, 2025</li>
+      <li>Early Registration Deadline: June 20, 2025</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Organizers</h2>
+    <ul>
+      <li>Dr. Jane Doe, XYZ University</li>
+      <li>Dr. John Smith, ABC Institute</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Contact</h2>
+    <p>For inquiries, please contact us at <a href="mailto:conf2025@statsconf.org">conf2025@statsconf.org</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Statistics Conference. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
